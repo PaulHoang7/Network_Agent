@@ -1,0 +1,4 @@
+ip nat pool MYPPOOL {{start_ip}} {{end_ip}} netmask {{netmask}}
+ip nat inside source list {{acl_number}} pool MYPPOOL overload
+!
+access-list {{acl_number}} permit {{protocol}} {{src}} {{src_wildcard}} {{dst}}{{(" " + dst_wildcard) if dst_wildcard else ""}}

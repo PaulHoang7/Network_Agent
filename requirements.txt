@@ -1,0 +1,5 @@
+streamlit
+google-generativeai
+jinja2
+regex
+ipaddress

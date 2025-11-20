@@ -1,0 +1,7 @@
+ip nat inside source static {{private_ip}} {{public_ip}}
+!
+interface {{inside_int}}
+ ip nat inside
+!
+interface {{outside_int}}
+ ip nat outside

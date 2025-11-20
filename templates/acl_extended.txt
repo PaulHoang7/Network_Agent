@@ -1,0 +1,8 @@
+ip access-list extended {{acl_name}}
+{% for rule in rules %}
+ {{rule.action}} {{rule.protocol}} {{rule.src}}{{(" " + rule.src_wildcard) if rule.src_wildcard else ""}} {{rule.dst}}{{(" " + rule.dst_wildcard) if rule.dst_wildcard else ""}}{% if rule.port != "any" %} eq {{rule.port}}{% endif %}
+{% endfor %}
+ permit ip any any
+!
+interface {{interface}}
+ ip access-group {{acl_name}} {{direction}}
