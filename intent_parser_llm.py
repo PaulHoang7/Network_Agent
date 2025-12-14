@@ -6,7 +6,11 @@ from intent_parser_basic_interface import parse_interface_basic
 import os
 
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+api_key = os.getenv("GEMINI_API_KEY")
+if not api_key:
+    raise ValueError("❌ Lỗi: Chưa đặt biến môi trường GEMINI_API_KEY!")
+
+genai.configure(api_key=api_key)
 model = genai.GenerativeModel("gemini-3-pro-preview")
 
 def parse_intent_llm(user_text):

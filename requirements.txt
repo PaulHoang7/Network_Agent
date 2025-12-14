@@ -3,3 +3,6 @@ google-generativeai
 jinja2
 regex
 ipaddress
+faiss-cpu
+sentence-transformers
+numpy
