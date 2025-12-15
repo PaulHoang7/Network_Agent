@@ -1,0 +1,7 @@
+{% if intent == 'nat_dynamic' %}
+ip nat pool NAT_POOL {{ start_ip }} {{ end_ip }} netmask {{ netmask }}
+access-list {{ acl_number }} permit {{ src }} {{ src_wildcard }}
+ip nat inside source list {{ acl_number }} pool NAT_POOL
+{% else %}
+ip nat inside source static {{ local_ip }} {{ global_ip }}
+{% endif %}

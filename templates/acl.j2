@@ -1,0 +1,7 @@
+ip access-list {{ 'extended' if type == 'extended' else 'standard' }} {{ acl_name }}
+{% for rule in rules %}
+ {{ rule.action }} {{ rule.protocol }} {{ rule.src }} {{ rule.src_wildcard }} {{ rule.dst }} {{ rule.dst_wildcard }} {{ 'eq ' + rule.port if rule.port != 'any' else '' }}
+{% endfor %}
+interface {{ interface }}
+ ip access-group {{ acl_name }} {{ direction }}
+ exit
