@@ -19,9 +19,11 @@ class SynthesizerAgent:
         {rfc_context}
         
         NHIỆM VỤ:
-        - Hiển thị đoạn cấu hình CLI trong block code.
-        - Giải thích ngắn gọn các lệnh chính dựa trên kiến thức RFC (nếu có).
-        - Đưa ra cảnh báo an toàn nếu cần.
+        - Hãy trả lời hoàn toàn bằng **TIẾNG VIỆT**.
+        - Đầu tiên: Hiển thị đoạn code cấu hình trong block code (```).
+        - Tiếp theo: Giải thích ngắn gọn tác dụng của các lệnh chính (bằng tiếng Việt).
+        - Cuối cùng: Nếu có thông tin từ RFC, hãy trích dẫn ngắn gọn (đã dịch sang tiếng Việt) để giải thích tại sao lại cấu hình như vậy.
+        - Nếu cấu hình có rủi ro bảo mật (ví dụ 'permit any'), hãy cảnh báo.
         """
         
         response = self.model.generate_content(prompt)

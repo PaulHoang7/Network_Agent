@@ -1,8 +1,9 @@
 streamlit
 google-generativeai
-jinja2
-regex
-ipaddress
-faiss-cpu
+python-dotenv
 sentence-transformers
+faiss-cpu
 numpy
+jinja2
+langdetect
+torch
